@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+<h1 th:text="'Hello !'"></h1>
+
+<form th:action="@{/}" name="find-address" method="post" th:object="${mystring}">
+    <div class="mb-3">
+        <label class="form-label">Enter Geolocation in format: longitude,latitude : XX.XXXXXX,XX.XXXXXX</label>
+        <input type="text" class="form-control" id="address" name="address"/>
+    </div>
+    <div class="mb-3">
+        <button type="submit" name="find-address" class="btn-primary">Find Address</button>
+    </div>
+</form>
+
+<form th:action="@{/}" name="find-geo" method="post" th:object="${mystring}">
+    <div class="mb-3">
+        <label class="form-label">Enter address</label>
+        <input type="text" class="form-control" id="address" name="address"/>
+    </div>
+    <div class="mb-3">
+        <button type="submit" name="find-geo" class="btn-primary">Find Geolocation</button>
+    </div>
+</form>
+
+<div>
+    <h1>Geolocation</h1>
+    <table class="table">
+        <tr>
+            <th>Address or geolocation</th>
+        </tr>
+        <tr>
+            <td th:text="${mystrings}">...</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
